@@ -1,0 +1,17 @@
+{
+  "name": "netuxtest",
+  "version": "1.0.0",
+  "description": "this is a backend test for netux group",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sergio Cruz",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^4.1.0",
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.3.12"
+  }
+}
