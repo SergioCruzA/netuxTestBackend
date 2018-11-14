@@ -3,6 +3,7 @@ const accessModel = require('../models/access');
 
 const vehicleInterface = require('./vehicle');
 const userInterface = require('./user');
+const pickPlateValidate = require('../helper/validatePickPlate');
 
 // Interface for create access
 const create = async({ user, vehicle }) => {
@@ -54,8 +55,11 @@ const createAccess = async({ identify, plate }) => {
 };
 
 const updateOut = async({ identify, plate }) => {
+  let hasPickPlate = false;
   const { user, vehicle } = await validateUserVehicle(identify, plate);
-  // Validate if have pico y placa
+  // Validate if have pick and plate
+  hasPickPlate = await pickPlateValidate(vehicle);
+  if(hasPickPlate) throw new Error('IT_CANT_LEAVE');
 
   await update({ vehicle: vehicle.id, user: user.id, exitDate: { $exists: false } }, { $set: { exitDate: new Date() } });
 }
