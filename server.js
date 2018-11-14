@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const cors = require('kcors');
 
 const vehicle = require('./src/routes/vehicle');
+const user = require('./src/routes/user');
 const validatorHelper = require('./src/helper/validator');
 
 const app = new Koa();
@@ -26,6 +27,7 @@ app
   .use(validatorHelper)
 
 app.use(vehicle().routes());
+app.use(user().routes());
 
 koaValidate(app);
 
