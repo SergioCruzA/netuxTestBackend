@@ -10,8 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "debug": "^4.1.0",
+    "kcors": "^2.2.2",
     "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
+    "koa-validate": "^1.0.7",
+    "lodash": "^4.17.11",
     "mongoose": "^5.3.12"
   }
 }
