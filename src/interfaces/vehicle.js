@@ -28,6 +28,9 @@ const create = async(vehicle, owner) => {
   return newVehicle.toObject();
 };
 
+const readOne = (query, select) => vehicleModel.findOne(query, select);
+
 module.exports = {
   create,
+  readOne
 }

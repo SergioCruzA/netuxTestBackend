@@ -15,6 +15,9 @@ const create = async(user) => {
   return newUser.toObject();
 };
 
+const readOne = (query, select) => userModel.findOne(query, select);
+
 module.exports = {
   create,
+  readOne,
 }

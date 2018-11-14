@@ -9,6 +9,7 @@ const cors = require('kcors');
 
 const vehicle = require('./src/routes/vehicle');
 const user = require('./src/routes/user');
+const access = require('./src/routes/access');
 const validatorHelper = require('./src/helper/validator');
 
 const app = new Koa();
@@ -28,11 +29,12 @@ app
 
 app.use(vehicle().routes());
 app.use(user().routes());
+app.use(access().routes());
 
 koaValidate(app);
 
 // Create mongo conection
-mongoose.connect(process.env.URLDB, { useNewUrlParser: true }, (err, resp) => {
+mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true, }, (err, resp) => {
   if (err) throw err;
   console.log('Data base ONLINE');
 });
