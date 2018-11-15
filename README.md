@@ -12,6 +12,10 @@ You will need the following things installed on your computer.
 
 # Installation
 
-* ```bash git clone <repository-url>```  this reporsitory
-* ```bash cd netuxTest```
-* ```bash npm install```
+* ```git clone <repository-url>```  this reporsitory
+* ```cd netuxTest```
+* ```npm install```
+
+# Development Server
+
+Run ```node index.js``` or ```npm start``` for a develop server. The server runs by defaut in port ```2323``` or in your Environment Variables. MongoDB runs in default path ```mongodb:localhost:27017/netux``` and the port of socket by default is ```3000```
