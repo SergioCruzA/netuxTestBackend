@@ -1,5 +1,6 @@
 // PORT
 process.env.PORT = process.env.PORT || 2323;
+process.env.WSPORT = process.env.PORT_WS || 3000;
 
 // Environment
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';

@@ -1,6 +1,9 @@
 // require intial config
 require('./src/config/config');
 
+// require to init socket connection
+require('./src/socket/connection');
+
 const Koa = require('koa');
 const koaValidate = require('koa-validate');
 const bodyParser = require('koa-bodyparser');
