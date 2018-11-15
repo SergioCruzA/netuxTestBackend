@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "9415295e-5658-432b-b379-857dc39b036c",
+		"name": "Netux-ApiTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"SergioCruz1\",\n\t\"identify\": 1152192857,\n\t\"email\": \"sergiocruz92@hotmail.es\",\n\t\"age\": 27,\n\t\"jobTitle\": \"backendDeveloper\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:2323/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2323",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createVehicle",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"kind\": \"car\",\n\t\"model\": 2000,\n\t\"doors\": 4,\n\t\"cilind\": 115,\n\t\"times\": 2,\n\t\"plate\": \"BXW549\",\n\t\"typeBike\": \"todoTerreno\",\n\t\"user\": \"5bebae56aa7f4b2009fb12b6\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:2323/vehicles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2323",
+					"path": [
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createAccess",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "identify",
+							"value": "1152192859",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": ""
+						},
+						{
+							"key": "plate",
+							"value": "Bxw549",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:2323/access/in",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2323",
+					"path": [
+						"access",
+						"in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAccessOut",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"plate\": \"BXW349\",\n\t\"identify\": 1152192859\n}"
+				},
+				"url": {
+					"raw": "http://localhost:2323/access/out",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2323",
+					"path": [
+						"access",
+						"out"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "readStatisticsByIdentify",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:2323/users/statistics/1152192859",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2323",
+					"path": [
+						"users",
+						"statistics",
+						"1152192859"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
