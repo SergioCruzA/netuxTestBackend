@@ -20,7 +20,8 @@ let accessSchema = new Schema({
     type: Date,
   },
   img: {
-    type: String,
+    data: Buffer, 
+    contentType: String
   }
 }, 
   {

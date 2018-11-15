@@ -10,8 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "debug": "^4.1.0",
+    "fs": "0.0.1-security",
     "kcors": "^2.2.2",
     "koa": "^2.6.2",
+    "koa-body": "^4.0.4",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "koa-validate": "^1.0.7",

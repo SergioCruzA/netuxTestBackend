@@ -6,10 +6,10 @@ const userInterface = require('./user');
 const pickPlateValidate = require('../helper/validatePickPlate');
 
 // Interface for create access
-const create = async({ user, vehicle }) => {
+const create = async({ user, vehicle, img }) => {
   let newAccess = {};
   try {
-    newAccess = await accessModel.create({ user, vehicle });
+    newAccess = await accessModel.create({ user, vehicle, img });
   } catch (e) {
     console.log(e);
     throw new Error('ACCESS_DONT_CREATE');
@@ -43,14 +43,14 @@ const validateUserVehicle = async(identify, plate) => {
   return { user, vehicle };
 }
 
-const createAccess = async({ identify, plate }) => {
+const createAccess = async({ identify, plate, img }) => {
   const { user, vehicle } = await validateUserVehicle(identify, plate);
 
   console.log('user: ', user);
   console.log('vehicle: ', vehicle);
 
-  const accessCreated = await create({ user: user.id, vehicle: vehicle.id });
-  // TODO enviar informacion del punto 2.2
+  const accessCreated = await create({ user: user.id, vehicle: vehicle.id, img });
+  delete accessCreated.img;
   return accessCreated;
 };
 

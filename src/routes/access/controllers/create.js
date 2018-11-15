@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const accessInterface = require('../../../interfaces/access');
 
 const controllers = [
@@ -23,10 +25,18 @@ const controllers = [
     }
   },
   async (ctx) => {
-    const { identify, plate } = ctx.request.body
-    console.log('Body: ', { identify, plate });
+    const { identify, plate } = ctx.request.body;
+    const file = ctx.request.files.image
 
-    const access = await accessInterface.createAccess({ identify, plate });
+    const { type, path } = file;
+
+    const buffer = fs.readFileSync(path);
+    const img = {
+      data: buffer, 
+      contentType: type
+    }
+
+    const access = await accessInterface.createAccess({ identify, plate, img });
 
     ctx.body = {
       status: 'success',
