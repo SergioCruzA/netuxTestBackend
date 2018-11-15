@@ -13,7 +13,7 @@ You will need the following things installed on your computer.
 # Installation
 
 * ```git clone <repository-url>```  this reporsitory
-* ```cd netuxTest```
+* ```cd netuxTestBackend```
 * ```npm install```
 
 # Development Server
