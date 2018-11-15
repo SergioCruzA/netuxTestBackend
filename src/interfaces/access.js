@@ -3,6 +3,7 @@ const accessModel = require('../models/access');
 
 const vehicleInterface = require('./vehicle');
 const userInterface = require('./user');
+const statisticInterface = require('./statistic');
 const pickPlateValidate = require('../helper/validatePickPlate');
 
 // Interface for create access
@@ -51,6 +52,8 @@ const createAccess = async({ identify, plate, img }) => {
 
   const accessCreated = await create({ user: user.id, vehicle: vehicle.id, img });
   delete accessCreated.img;
+  // Notify to statistics
+  await statisticInterface.createStatistic(user.id);
   return accessCreated;
 };
 
