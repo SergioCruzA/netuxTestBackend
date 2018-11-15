@@ -1,5 +1,3 @@
-const _ = require('lodash');
-
 // Require user model
 const userModel = require('../models/user');
 
@@ -7,6 +5,7 @@ const userModel = require('../models/user');
 const create = async(user) => {
   let newUser = {};
   try {
+    // Create user in database
     newUser = await userModel.create({ ...user });
   } catch (e) {
     console.log(e);
@@ -15,6 +14,7 @@ const create = async(user) => {
   return newUser.toObject();
 };
 
+// Interface for find an user by query
 const readOne = (query, select) => userModel.findOne(query, select);
 
 module.exports = {

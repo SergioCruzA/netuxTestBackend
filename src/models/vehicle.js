@@ -28,6 +28,7 @@ let vehicleSchema = new Schema({
   },
   plate: {
     type: String,
+    unique: true,
   },
   typeBike: {
     type: String,

@@ -19,6 +19,7 @@ const controllers = [
     } catch (err) {
       const { identify, plate } = ctx.request.body;
       if (err.message === 'VEHICLE_NOT_EXISTS') {
+        // Send event to admin room when vehicle is not register
         io.sockets.in('admin').emit('vehicle_not_register', { identify, plate });
       }
       ctx.status = err.status || 500;
@@ -32,6 +33,7 @@ const controllers = [
     const { identify, plate } = ctx.request.body;
     console.log('Body: ', { identify, plate });
 
+    // Call update interface to save exit date
     await accessInterface.updateOut({ identify, plate });
 
     ctx.body = {

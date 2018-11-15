@@ -49,10 +49,11 @@ const controllers = [
     }
   },
   async (ctx) => {
-    const body = ctx.request.body
+    const body = ctx.request.body;
+    const { user } = ctx.request.body;
     console.log('Body: ', body);
 
-    const vehicle = await vehicleInterface.create(body, 'SergioCruz')
+    const vehicle = await vehicleInterface.create(body, user);
 
     ctx.body = {
       status: 'success',

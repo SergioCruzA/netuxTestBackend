@@ -1,9 +1,11 @@
 const socketIO = require('socket.io');
 
+// Create instance of socket.io
 const io = new socketIO();
 
 const passwordAdmin = '123456789';
 
+// Create socket connection
 io.on('connection', (socket) => {
   console.log('New connection openned: ', socket.id);
 
@@ -14,6 +16,7 @@ io.on('connection', (socket) => {
 
   // Event to "login" like admin
   socket.on('connect_admin', (data) => {
+    // Validate if password sent in event make match with passwordAdmin
     if(data.password === passwordAdmin) {
       // Join to room admin
       socket.join('admin', async(err) => {
@@ -24,6 +27,7 @@ io.on('connection', (socket) => {
   });
 });
 
+// Listen socket by port 
 io.listen(process.env.WSPORT);
 
 module.exports = io;

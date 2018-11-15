@@ -30,14 +30,17 @@ const controllers = [
 
     const { type, path } = file;
 
+    // Create Buffer of image
     const buffer = fs.readFileSync(path);
     const img = {
       data: buffer, 
       contentType: type
     }
 
+    // Call interface for create access and save the image
     const access = await accessInterface.createAccess({ identify, plate, img });
 
+    // Response
     ctx.body = {
       status: 'success',
       data: access,

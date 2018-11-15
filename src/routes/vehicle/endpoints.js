@@ -1,17 +1,13 @@
 const Router = require('koa-router');
 
+// Require controller of vehicle
 const createVehicle = require('./controllers/create');
 
 const router = new Router({ prefix: '/vehicles'});
 
 module.exports = () => {
+  // Route for create vehicle
   router.post('/', ...createVehicle);
 
-  router.get('/hola', async (ctx) => {
-    ctx.body = {
-      status: 'success',
-      message: 'hello, again!'
-    };
-  });
   return router;
 };

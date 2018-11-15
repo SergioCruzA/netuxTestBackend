@@ -1,3 +1,4 @@
+// Require interface of user
 const userInterface = require('../../../interfaces/user');
 
 const controllers = [
@@ -37,6 +38,7 @@ const controllers = [
     const body = ctx.request.body
     console.log('Body: ', body);
 
+    // Create an user
     const user = await userInterface.create(body);
 
     ctx.body = {

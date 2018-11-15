@@ -25,9 +25,11 @@ const controllers = [
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
 
+    // Validate if user exists by identify
     const user = await userInterface.readOne({ identify: params.identify });
     if (!user) throw new Error('USER_NOT_EXISTS');
 
+    // Count days of use by user
     const count = await statisticInterface
       .count({ 
         day: { $gte:1, $lte: 31 }, 
@@ -36,6 +38,7 @@ const controllers = [
         user,
        });
 
+    // Response 
     ctx.body = {
       status: 'success',
       data: { useDays: count },
